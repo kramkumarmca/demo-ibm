@@ -1,0 +1,104 @@
+<div>
+
+  <table>
+
+    <tr>
+
+      <td>
+        ID:
+      </td>
+      <td>
+        <input id="id" [(ngModel)]="id" (change)="gv($event)">
+      </td>
+    </tr>
+
+    <tr>
+
+      <td>
+        uid:
+      </td>
+      <td>
+        <input id="uid" [(ngModel)]="uid" >
+      </td>
+    </tr>
+
+    <tr>
+
+      <td>
+        blend_name:
+      </td>
+      <td>
+        <input id="blend_name" [(ngModel)]="blend_name" >
+      </td>
+    </tr>
+
+    <tr>
+
+      <td>
+        origin:
+      </td>
+      <td>
+        <input id="origin" [(ngModel)]="origin" >
+      </td>
+    </tr>
+
+    <tr>
+
+      <td>
+        variety:
+      </td>
+      <td>
+        <input id="variety" [(ngModel)]="variety" >
+      </td>
+    </tr>
+
+    <tr>
+
+      <td>
+        notes:
+      </td>
+      <td>
+        <input id="notes" [(ngModel)]="notes" >
+      </td>
+    </tr>
+
+    <tr>
+
+      <td>
+        intensifier:
+      </td>
+      <td>
+        <input id="intensifier" [(ngModel)]="intensifier" >
+      </td>
+    </tr>
+
+
+    <tr>
+
+      <td colspan="2">
+        <button
+    (click)="addList()"
+    data-test="add-button"
+  >Add to Collection</button>
+        
+      </td>
+      
+    </tr>
+
+
+  </table>
+
+
+</div>
+
+
+
+
+<!--
+<div class="coffee-item" *ngFor="let coffee of coffees">
+  <p>{{coffee.blend_name}}</p><span> by {{coffee.origin}}</span>
+  <button
+    (click)="add.emit(coffee)"
+    data-test="add-button"
+  >Add to Collection</button>
+</div>-->

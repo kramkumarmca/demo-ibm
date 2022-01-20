@@ -1,0 +1,111 @@
+
+
+
+
+
+
+<div>
+<div class="example-table-container">
+
+  <table mat-table [dataSource]="coffees" class="example-table" 
+         matSort matSortActive="id" matSortDisableClear matSortDirection="desc">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="blend_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>
+        blend_name
+      </th>
+      <td mat-cell *matCellDef="let row">{{row.blend_name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="origin">
+      <th mat-header-cell *matHeaderCellDef>Origin</th>
+      <td mat-cell *matCellDef="let row">{{row.origin}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="variety">
+      <th mat-header-cell *matHeaderCellDef>variety</th>
+      <td mat-cell *matCellDef="let row">{{row.variety}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="notes">
+      <th mat-header-cell *matHeaderCellDef>notes</th>
+      <td mat-cell *matCellDef="let row">{{row.notes}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="intensifier">
+      <th mat-header-cell *matHeaderCellDef>intensifier</th>
+      <td mat-cell *matCellDef="let row">{{row.intensifier}}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row;">
+        <button mat-icon-button>
+          <mat-icon color="danger" style="color:red" (click)="remove.emit(row)">delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
+<mat-paginator [length]="coffees.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" aria-label="Select Page"></mat-paginator>
+</div>
+
+
+<!--<div 
+  class="book-item"
+  *ngFor="let coffee of coffees"
+>
+  <p>{{coffee.id}}</p><span> by {{coffee.blend_name}}</span>
+  <button
+    (click)="remove.emit(coffee)"
+    data-test="remove-button"
+  >Remove from Collection</button>
+</div>
+
+
+<div class="container">
+
+  <table>
+
+    <tr>
+
+      <th *ngFor="let c of displayedColumns">{{c}}</th>
+
+    </tr>
+
+    <tr *ngFor="let coffee of coffees">
+
+      <td>{{coffee.id}}</td>
+      <td>{{coffee.blend_name}}</td>
+      <td>{{coffee.origin}}</td>
+      <td>{{coffee.variety}}</td>
+      <td>{{coffee.notes}}</td>
+      <td>{{coffee.intensifier}}</td>
+      <td>
+        <button
+        (click)="remove.emit(coffee)"
+    data-test="add-button"
+  >Delete</button>
+  <button mat-icon-button>
+    <mat-icon color="danger" style="color:red" (click)="remove.emit(coffee)">delete</mat-icon>
+  </button> 
+      </td>
+
+    </tr>
+
+
+  </table>
+
+
+</div>
+
+-->
