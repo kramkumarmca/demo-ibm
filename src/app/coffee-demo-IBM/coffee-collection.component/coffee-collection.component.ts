@@ -22,7 +22,7 @@ export class CoffeeCollectionComponent implements AfterViewInit, OnInit {
   isLoadingResults = true;
   isRateLimitReached = false;
 
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   
   @ViewChild(MatSort) sort: MatSort;
   dataSource = new MatTableDataSource<Coffee>();
@@ -33,7 +33,6 @@ export class CoffeeCollectionComponent implements AfterViewInit, OnInit {
 
   constructor() {
     this.dataSource.paginator = this.paginator;
-    console.log(this.coffees)
   }
 
   ngOnInit() {
@@ -46,8 +45,10 @@ export class CoffeeCollectionComponent implements AfterViewInit, OnInit {
 
   ngOnChanges() {
     console.log(this.coffees);
-    
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
     this.dataSource.data = this.coffees;
+    this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
  
