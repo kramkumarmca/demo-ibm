@@ -1,7 +1,21 @@
+<div class="container">
+
+    <div class="header">
+
+        <p>IBM Demo - Coffee Collection</p>
+
+    </div>
+
 <h2>Coffees</h2>
 <coffee-list class="coffee-list" [coffees]="coffees$ | async" (add)="onAdd($event)"></coffee-list>
 
 <h2>My Collection</h2>
     <coffee-collection class="coffee-collection" [coffees]="coffeeCollection$ | async" (remove)="onRemove($event)">
 </coffee-collection>
+<br><br><br><br><br><br>
+<div class="footer">
+    <p>Ramkumar Kannuchamy</p>
+</div>
+
+</div>
 

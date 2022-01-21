@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+button {
+    height: 50px;
+    background: cadetblue;
+    color: white;
+    border: 0px;
+}
+
+
+h2, h3 {
+    text-decoration: underline;
+    color: chocolate;
+}
