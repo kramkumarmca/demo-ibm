@@ -52,6 +52,11 @@ import { RootEffects } from './coffee-demo-IBM/coffee-demo.effects';
     BrowserAnimationsModule,
     EffectsModule.forRoot([RootEffects]),
   ],
+  exports: [
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

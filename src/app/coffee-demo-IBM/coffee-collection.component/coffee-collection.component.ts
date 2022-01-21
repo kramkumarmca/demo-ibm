@@ -2,7 +2,6 @@ import { AfterViewInit, Component, EventEmitter, Input, Output, ViewChild, OnIni
 import { Coffee } from '../coffee-demo-IBM-model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import {MatIconModule} from '@angular/material/icon';
 import { MatTableDataSource } from '@angular/material/table';
 
 
@@ -22,9 +21,12 @@ export class CoffeeCollectionComponent implements AfterViewInit, OnInit {
   isLoadingResults = true;
   isRateLimitReached = false;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: false}) 
+  set paginator(value: MatPaginator) {
+    this.dataSource.paginator = value;
+  }
   
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
   dataSource = new MatTableDataSource<Coffee>();
 
 
@@ -32,7 +34,6 @@ export class CoffeeCollectionComponent implements AfterViewInit, OnInit {
   @Output() remove = new EventEmitter<Coffee>();
 
   constructor() {
-    this.dataSource.paginator = this.paginator;
   }
 
   ngOnInit() {
@@ -40,16 +41,17 @@ export class CoffeeCollectionComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit() {
-    setTimeout(() => this.dataSource.paginator = this.paginator, 300);
   }
 
   ngOnChanges() {
     console.log(this.coffees);
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.data = this.coffees;
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+    this.dataSource = new MatTableDataSource(this.coffees);
+    setTimeout(
+      () => {
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
+       });
+    
   }
  
 

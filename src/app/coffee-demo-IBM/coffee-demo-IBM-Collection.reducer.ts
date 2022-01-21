@@ -10,7 +10,7 @@ export const collectionReducer = createReducer(
   on(addCoffee, (state, coffee) => {
     if (state.indexOf(coffee.id) > -1) return state;
  
-    return [...state, coffee];
+    return [coffee, ...state];
   }),
   on(loadCoffeeSuccess, (state, {coffee}) => 
     {

@@ -37,7 +37,7 @@ export class RootEffects {
     )
     })
     getRightObject() {
-      return this.coffeeService.getNCoffee(20).pipe(
+      return this.coffeeService.getNCoffee(50).pipe(
         map((res) => 
           {
             let c = <Array<Coffee>> res;
