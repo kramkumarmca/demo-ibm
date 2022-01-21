@@ -1,12 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Injectable } from '@angular/core';
- 
 import { of, Observable, forkJoin, observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Coffee } from './coffee-demo-IBM-model';
-import { coffeesReducer } from './coffee-demo-IBM-reducer';
-import { delay } from 'rxjs/operators';
-
 
 @Injectable({ providedIn: 'root' })
 export class CoffeeDemoIBMService {
@@ -20,7 +16,7 @@ export class CoffeeDemoIBMService {
       .pipe(map((coffees) => [coffees] || []));
   }
 
-  getNCoffee(n) {
+  getNCoffee(n){
 
 
     let response1 = [];

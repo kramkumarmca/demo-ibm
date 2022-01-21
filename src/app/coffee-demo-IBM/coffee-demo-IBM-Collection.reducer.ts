@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { addCoffee, ApiGetData, removeCoffee, ApiSuccess, ApiError } from './coffee-demo-IBM-Action';
+import { addCoffee, removeCoffee, loadCoffeeSuccess } from './coffee-demo-IBM-Action';
 import { Coffee } from './coffee-demo-IBM-model'; 
 
 export const initialState: ReadonlyArray<Coffee> = [];
@@ -12,8 +12,11 @@ export const collectionReducer = createReducer(
  
     return [...state, coffee];
   }),
-  on(ApiError, (action) => (action)),
-  on(ApiSuccess, (coffee) => (coffee))
+  on(loadCoffeeSuccess, (state, {coffee}) => 
+    {
+      return [...state, ...coffee];
+    }
+  )
   
 
 );

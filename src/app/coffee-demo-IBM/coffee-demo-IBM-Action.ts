@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { Coffee } from './coffee-demo-IBM-model';
  
-
+coffees: Array<Coffee>();
 const API_ERROR_ACTION = '[Random] Mock API Error';
 const API_SUCCESS_ACTION = '[Random] Mock API Success';
 
@@ -21,7 +21,10 @@ export const retrievedCoffeeList = createAction(
   props<{coffee: Array<Coffee>}>()
 );
 
+
+
 export const ApiGetData = createAction("[Coffee] Get ALL API Data");
 
-export const ApiError = createAction(API_ERROR_ACTION, props<{ error: any }>());
-export const ApiSuccess = createAction(API_SUCCESS_ACTION, props<Coffee>());
+
+
+export const loadCoffeeSuccess = createAction('[Coffee] Load Coffees Success', props<{coffee: Array<Coffee>}>());

@@ -5,7 +5,7 @@
 
 
 <div>
-<div class="example-table-container">
+<div class="example-table-container" style="width:70%">
 
   <table mat-table [dataSource]="coffees" class="example-table" 
          matSort matSortActive="id" matSortDisableClear matSortDirection="desc">
@@ -53,10 +53,14 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
   </table>
+  <div>
+    <mat-paginator [length]="coffees.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" aria-label="Select Page"></mat-paginator>
+  </div>
 </div>
 
-<mat-paginator [length]="coffees.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" aria-label="Select Page"></mat-paginator>
+
 </div>
 
 
