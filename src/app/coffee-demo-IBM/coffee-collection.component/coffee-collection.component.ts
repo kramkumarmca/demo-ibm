@@ -25,7 +25,7 @@ export class CoffeeCollectionComponent implements AfterViewInit, OnInit {
   @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
   
   @ViewChild(MatSort) sort: MatSort;
-  dataSource = new MatTableDataSource<Array<Coffee>>();
+  dataSource = new MatTableDataSource<Coffee>();
 
 
   @Input() coffees: Array<Coffee> = [];
@@ -44,6 +44,12 @@ export class CoffeeCollectionComponent implements AfterViewInit, OnInit {
     setTimeout(() => this.dataSource.paginator = this.paginator, 300);
   }
 
+  ngOnChanges() {
+    console.log(this.coffees);
+    
+    this.dataSource.data = this.coffees;
+    this.dataSource.paginator = this.paginator;
+  }
  
 
 }
